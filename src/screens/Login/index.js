@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { loginUser } from '../../services/user.js';
 
 class Login extends Component {
 
@@ -10,7 +11,13 @@ class Login extends Component {
   }
 
   enterProfile() {
-    document.location.href = './mainstage'
+    loginUser(this.state.userName)
+    .then(resp => {
+      document.location.href = './mainstage';
+    })
+   .catch(error => {
+    console.log(error);
+   });
   }
 
   render() {
@@ -29,7 +36,7 @@ class Login extends Component {
                 }}/>
           </label>
           <button onClick={() => {this.enterProfile()}}>
-            Enter2
+            Enter
           </button>
         </div>
       </div>
