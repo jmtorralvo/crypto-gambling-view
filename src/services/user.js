@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const API_URL = 'http://crypto-fighters.hackathon.guidesmiths.com';
+const API_URL = 'https://crypto-fighters.hackathon.guidesmiths.com';
 
 export const loginUser = (name) =>
   axios
