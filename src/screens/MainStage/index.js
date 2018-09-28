@@ -61,11 +61,6 @@ class MainStage extends Component {
   }
 
   onEndCouwntDown() {
-    /* if (this.state.stage === 'chooseCoin') {
-      this.setState({stage: 'fight'});
-    } else if (this.state.stage === 'fight') {
-      this.setState({stage: 'result'});
-    } */
     this.setState({stage: 'result'});
   }
 

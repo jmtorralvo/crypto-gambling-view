@@ -45,9 +45,6 @@ class Bet extends Component {
               this.setBet(30)
             }} />
         </div>
-        <div>
-          bet: {this.state.bet}
-        </div>
       </div>
     )
   }
