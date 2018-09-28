@@ -4,7 +4,7 @@ const API_URL = 'http://localhost:4000';
 
 export const loginUser = (name) =>
   axios
-   .post('http://hackathon.guidesmiths.com/api/user', {
+   .post(`${API_URL}/api/user`, {
      name: name,
    })
 

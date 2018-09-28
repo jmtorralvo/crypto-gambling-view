@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import {
-  WinImgWrapper,
+  WinImgWrapper, BtnAgain,
 } from '../styles';
 
 class Result extends Component {
