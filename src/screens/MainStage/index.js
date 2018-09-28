@@ -33,7 +33,6 @@ const users = [
   { username: 'Glen', avatar: '/images/glen.jpeg'},
 ];
 
-
 class MainStage extends Component {
 
   constructor(props) {
@@ -44,72 +43,39 @@ class MainStage extends Component {
       coins,
       fakeParticipantsEngine: {
         time: 0,
-        picked: 0,
+        picked: 0
       },
+      users,
+      userSelection: users,
     };
   }
 
   onSelecCoin(name){
     this.setState({
       coinSelected: name,
-      stage: 'fight'
-    })
+      stage: 'fight'})
   }
 
-  onSelectBet(amount){
-    this.setState({
-      bet: amount,
-      stage: 'choseCoin'
-    });
-    this.startCoinSelection();
+  onSelectBet(amount) {
+    this.setState({bet: amount, stage: 'choseCoin'});
   }
 
-  onEndCouwntDown(){
-    if (this.state.stage === 'chooseCoin') {
-      this.setState({
-        stage: 'fight'
-      });
+  onEndCouwntDown() {
+    /* if (this.state.stage === 'chooseCoin') {
+      this.setState({stage: 'fight'});
     } else if (this.state.stage === 'fight') {
-      this.setState({
-        stage: 'result'
-      });
-    }
+      this.setState({stage: 'result'});
+    } */
+    this.setState({stage: 'result'});
   }
 
-  startCoinSelection() {
-    setInterval(() => {
-      if (this.state.fakeParticipantsEngine.time < 3) {
-      } else if (this.state.fakeParticipantsEngine.time > 10 || this.state.fakeParticipantsEngine.picked === 3) {
-        console.log('all have been picked');
-        clearInterval(this);
-      } else {
-        const selectedParticipant = this.state.fakeParticipantsEngine.picked + 1;
-        console.log('now we are selecting user', selectedParticipant)
-        const coins = this.state.coins;
-        coins[selectedParticipant].isSelected = true;
-        coins[selectedParticipant].userSelection = users[this.state.fakeParticipantsEngine.picked + 1];
-        this.setState({
-          coins,
-          fakeParticipantsEngine: {
-            picked: this.state.fakeParticipantsEngine.picked + 1,
-          }
-        });
-      }
-      this.setState({
-        fakeParticipantsEngine: {
-          time: this.state.fakeParticipantsEngine.time + 1,
-          picked: this.state.fakeParticipantsEngine.picked,
-        }
-      });
-    }, 1500);
-  }
 
   render() {
     return (
       <div className="MainStage">
         {/* <Users users={users} /> */}
         <MainStageContainer>
-          { this.state.stage === 'bet' &&
+          { (this.state.stage === 'bet' || this.state.stage === 'choseCoin') &&
             <div>
               <MainTitle>Pick your amount</MainTitle>
               <Bet onSelect={amount => this.onSelectBet(amount)}></Bet>
@@ -117,7 +83,7 @@ class MainStage extends Component {
           }
           { this.state.stage === 'choseCoin' &&
             <div>
-              <MainTitle>Pick your crypto-fighter</MainTitle>
+              <MainTitle>Pick your crypto-fighter:</MainTitle>
               <div>
                 <h4>You have 10 seconds...</h4>
               </div>
