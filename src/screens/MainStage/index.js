@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 
 import Bet from './components/Bet';
+import Timer from './components/Timer';
 import CryptoCard from './components/CryptoCard';
 
 const coins = [
@@ -22,7 +23,7 @@ const coins = [
   }
 ];
 
-
+const COUNTDOWN_START = 10;
 
 
 class MainStage extends Component {
