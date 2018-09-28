@@ -1,20 +1,11 @@
 import styled from 'styled-components';
 
-const Button = styled.a`
-  /* This renders the buttons above... Edit me! */
-  display: inline-block;
-  border-radius: 3px;
-  padding: 0.5rem 0;
-  margin: 0.5rem 1rem;
-  width: 11rem;
-  background: transparent;
-  color: white;
-  border: 2px solid white;
+export const Header = styled.div`
+  background: #50E3C2;
+  height: 50px;
+`;
 
-  /* The GitHub button is a primary button
-   * edit this to target it specifically! */
-  ${props => props.primary && css`
-    background: white;
-    color: palevioletred;
-  `}
-`
+export const Footer = styled.div`
+  background: #1E2C35;
+  height: 100px;
+`;
