@@ -36,6 +36,7 @@ export default class Timer extends Component {
             time: 0,
           }
         });
+        clearInterval(this.timer)
         this.props.onFinish && this.props.onFinish();
       } else {
         this.setState({
