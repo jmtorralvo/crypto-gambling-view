@@ -8,6 +8,7 @@ import Result from './components/Result';
 import Spinner from './components/Spinner';
 import { logResult } from '../../services/user.js';
 import { MainTitle, MainStageContainer } from './styles';
+import { getCrypto } from '../../services/user';
 
 const coins = [
   {
@@ -68,7 +69,24 @@ class MainStage extends Component {
     this.setState({stage: 'result'});
   }
 
-  onSendResult(){
+  componentDidMount() {
+    console.log('didMount');
+    getCrypto().then(response => {
+      console.log(response.data);
+      response.data.map(coin => {
+        const assetIdBase = coin['asset_id_name'];
+        console.log({ coin })
+        coins.map((c, index) => {
+          if (assetIdBase === c.name) {
+            coins[index].value = `$${coin.rate.toFixed(2)}`;
+          }
+        });
+        console.log({ coins });
+      })
+    }).catch((err) => console.log('err', err));
+  }
+
+  onSendResult() {
     const name = localStorage.getItem('cf_userName');
     const diff = this.state.win ? this.state.bet : -(Number(this.state.bet))
     logResult({
@@ -104,6 +122,7 @@ class MainStage extends Component {
                   <CryptoCard
                     icon={coin.icon}
                     name={coin.name}
+                    value={coin.value}
                     USDValue={6800}
                     isSelected={coin.isSelected}
                     userSelection={coin.userSelection}
