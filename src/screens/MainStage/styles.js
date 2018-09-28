@@ -37,7 +37,7 @@ export const UserName = styled.span`
 
 export const MainTitle = styled.h2`
   color: #1E2C35;
-  text-align: left;
+  text-align: center;
 `;
 
 export const MainStageContainer = styled.div`

@@ -13,6 +13,7 @@ class Login extends Component {
   enterProfile() {
     loginUser(this.state.userName)
     .then(resp => {
+      localStorage.setItem('cf_userName', this.state.userName);
       document.location.href = './mainstage';
     })
    .catch(error => {

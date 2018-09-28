@@ -5,6 +5,7 @@ import Timer from './components/Timer';
 import CryptoCard from './components/CryptoCard';
 import Users from './components/Users';
 import Result from './components/Result';
+import { logResult } from '../../services/user.js';
 import { MainTitle, MainStageContainer } from './styles';
 import { getCrypto } from '../../services/user';
 
@@ -40,6 +41,8 @@ class MainStage extends Component {
     super(props);
     this.state = {
       stage: 'bet',
+      bet: 0,
+      win: false,
       coinSelected: '',
       coins,
       fakeParticipantsEngine: {
@@ -62,11 +65,6 @@ class MainStage extends Component {
   }
 
   onEndCouwntDown() {
-    /* if (this.state.stage === 'chooseCoin') {
-      this.setState({stage: 'fight'});
-    } else if (this.state.stage === 'fight') {
-      this.setState({stage: 'result'});
-    } */
     this.setState({stage: 'result'});
   }
 
@@ -85,6 +83,16 @@ class MainStage extends Component {
         console.log({ coins });
       })
     }).catch((err) => console.log('err', err));
+  }
+
+  onSendResult() {
+    const name = localStorage.getItem('cf_userName');
+    const diff = this.state.win ? this.state.bet : -(Number(this.state.bet))
+    logResult({
+      userName: name,
+      currentBet: this.state.bet,
+      change: diff
+    });
   }
 
 
