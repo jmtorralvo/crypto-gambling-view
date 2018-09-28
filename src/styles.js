@@ -16,14 +16,17 @@ export const Header = styled.div`
 `;
 
 export const Footer = styled.div`
+  padding: 40px 0;
   background: #1E2C35;
   height: 100px;
 `;
 
 export const Title = styled.div`
   color: white;
+  font-family: 'Muli';
 `;
 
 export const ShareTitle = styled.span`
   color: white;
+  font-family: 'Muli';
 `;
