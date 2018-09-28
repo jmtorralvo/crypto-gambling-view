@@ -7,6 +7,12 @@ import Home from './screens/Home';
 import Login from './screens/Login';
 import MainStage from './screens/MainStage';
 
+import {
+  Header,
+  Footer,
+  Title,
+} from './styles';
+
 
 const About = () => (
   <div>
@@ -48,28 +54,18 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Header>
+          <Title>CRYPTO FIGHTERS</Title>
+        </Header>
         <Router>
           <div>
-            {/* <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/about">About</Link>
-              </li>
-              <li>
-                <Link to="/topics">Topics</Link>
-              </li>
-            </ul>
-
-            <hr />
- */}
             <Route exact path="/" component={Home} />
             <Route exact path="/login" component={Login} />
             <Route path="/mainstage" component={MainStage} />
             <Route path="/topics" component={Topics} />
           </div>
         </Router>
+        <Footer />
       </div>
     );
   }
