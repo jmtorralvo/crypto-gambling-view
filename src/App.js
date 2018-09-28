@@ -3,12 +3,14 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import logo from './logo.svg';
 import './App.css';
 
-const Home = () => (
+import Home from './screens/Home/index.js';
+
+/* const Home = () => (
   <div>
     <h2>Home</h2>
   </div>
 );
-
+ */
 const About = () => (
   <div>
     <h2>About</h2>
