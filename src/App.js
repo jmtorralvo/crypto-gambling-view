@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import logo from './logo.svg';
 import './App.css';
 
-import Home from './screens/Home/index.js';
-import Login from './screens/Login/index.js';
+import Home from './screens/Home';
+import Login from './screens/Login';
 
 /* const Home = () => (
   <div>
