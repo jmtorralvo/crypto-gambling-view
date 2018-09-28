@@ -5,6 +5,7 @@ import Timer from './components/Timer';
 import CryptoCard from './components/CryptoCard';
 import Users from './components/Users';
 import Result from './components/Result';
+import Spinner from './components/Spinner';
 import { logResult } from '../../services/user.js';
 import { MainTitle, MainStageContainer } from './styles';
 import { getCrypto } from '../../services/user';
@@ -99,8 +100,8 @@ class MainStage extends Component {
   render() {
     return (
       <div className="MainStage">
-        {/* <Users users={users} /> */}
         <MainStageContainer>
+          <Spinner></Spinner>
           { (this.state.stage === 'bet' || this.state.stage === 'choseCoin') &&
             <div>
               <MainTitle>Pick your amount</MainTitle>

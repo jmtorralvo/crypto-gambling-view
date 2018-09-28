@@ -4,14 +4,14 @@ const API_URL = 'https://crypto-fighters.hackathon.guidesmiths.com';
 
 export const loginUser = (name) =>
   axios
-   .post('http://hackathon.guidesmiths.com:4000/api/user', {
+   .post('http://hackathon.guidesmiths.com/api/user', {
      name: name,
    })
 
-export const userBet = ({name,currentBet,currentChange}) =>
+export const logResult = ({name,currentBet,currentChange}) =>
   axios({
     method: 'get',
-    url: 'http://hackathon.guidesmiths.com:4000/api/nav/log',
+    url: 'http://hackathon.guidesmiths.com/api/nav/log',
     data: {
       gameId: "crypto-fighters",
       userName: name,
@@ -20,17 +20,6 @@ export const userBet = ({name,currentBet,currentChange}) =>
   }
 })
 
-export const logResult = (name,currentBet,currentChange) =>
-axios({
-  method: 'get',
-  url: 'http://hackathon.guidesmiths.com:4000/api/nav/log',
-  data: {
-     gameId: "crypto-fighters",
-     userName: name,
-     bet: currentBet,
-     change: currentChange
- }
-})
 
 export const getCrypto = () => axios({
   method: 'get',
