@@ -65,7 +65,8 @@ class MainStage extends Component {
         const assetIdBase = coin['asset_id_name'];
         coins.map((c, index) => {
           if (assetIdBase === c.name) {
-            coins[index].value = `$${coin.rate.toFixed(8)}`;
+            console.log(`${assetIdBase}-> $${coin.rate}`)
+            coins[index].value = `${coin.rate}`;
             afterResults.push({
               ...coins[index]
             });
@@ -73,6 +74,16 @@ class MainStage extends Component {
         });
         console.log({ beforeResults })
         console.log({ afterResults })
+
+        afterResults.map((c, i) => {
+          const beforeCoin = beforeResults[i].value;
+          const afterCoin = afterResults[i].value;
+          console.log({ beforeCoin })
+          console.log({ afterCoin })
+          const deviation = ((afterCoin / beforeCoin) * 100)-100;
+          console.log({ deviation });
+          coins[i].deviation = deviation;
+        });
       })
     }).catch((err) => console.log('err', err));
     this.setState({
@@ -95,7 +106,8 @@ class MainStage extends Component {
         const assetIdBase = coin['asset_id_name'];
         coins.map((c, index) => {
           if (assetIdBase === c.name) {
-            coins[index].value = `$${coin.rate.toFixed(8)}`;
+            console.log(`${assetIdBase}-> $${coin.rate}`)
+            coins[index].value = `${coin.rate}`;
             beforeResults.push({
               ...coins[index]
             });
