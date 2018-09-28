@@ -5,6 +5,7 @@ import Timer from './components/Timer';
 import CryptoCard from './components/CryptoCard';
 import Users from './components/Users';
 import Result from './components/Result';
+import { MainTitle, MainStageContainer } from './styles';
 
 const coins = [
   {
@@ -107,14 +108,17 @@ class MainStage extends Component {
     return (
       <div className="MainStage">
         <Users users={users} />
-        <div>
+        <MainStageContainer>
           { this.state.stage === 'bet' &&
-            <Bet onSelect={amount => this.onSelectBet(amount)}></Bet>
+            <div>
+              <MainTitle>Pick your amount</MainTitle>
+              <Bet onSelect={amount => this.onSelectBet(amount)}></Bet>
+            </div>
           }
           { this.state.stage === 'choseCoin' &&
             <div>
+              <MainTitle>Pick your crypto-fighter</MainTitle>
               <div>
-                <h2>Choose your crypto-fighter:</h2>
                 <h4>You have 10 seconds...</h4>
               </div>
               <div>
@@ -148,7 +152,7 @@ class MainStage extends Component {
           { this.state.stage === 'result' &&
             <Result></Result>
           }
-        </div>
+        </MainStageContainer>
       </div>
     );
   }

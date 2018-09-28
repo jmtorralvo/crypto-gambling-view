@@ -34,3 +34,13 @@ export const UserName = styled.span`
   font-size: 18px;
   color: white;
 `;
+
+export const MainTitle = styled.h2`
+  color: #1E2C35;
+  text-align: left;
+`;
+
+export const MainStageContainer = styled.div`
+  padding-top: 30px;
+  padding-left: 350px;
+`;
