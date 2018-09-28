@@ -5,6 +5,8 @@ import './App.css';
 
 import Home from './screens/Home/index.js';
 import Login from './screens/Login/index.js';
+import MainStage from './screens/MainStage/index.js';
+
 
 /* const Home = () => (
   <div>
@@ -70,7 +72,7 @@ class App extends Component {
  */}
             <Route exact path="/" component={Home} />
             <Route exact path="/login" component={Login} />
-            <Route path="/about" component={About} />
+            <Route path="/mainStage" component={MainStage} />
             <Route path="/topics" component={Topics} />
           </div>
         </Router>

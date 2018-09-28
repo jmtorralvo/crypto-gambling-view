@@ -10,12 +10,12 @@ class Login extends Component {
   }
 
   enterProfile() {
-    console.log('foo', this.state.userName);
+    document.location.href = './MainStage'
   }
 
   render() {
     return (
-      <div className="Home">
+      <div className="Login">
         <div>
           <h2>Insert your user name:</h2>
         </div>
@@ -25,11 +25,8 @@ class Login extends Component {
             <input type="text" name="name" 
                 value={this.state.userName} 
                 onChange={event => {
-                  console.log(event);
-                  debugger;
-                  //this.setState({ userName: event.target.value})
-                  }
-                  }/>
+                  this.setState({ userName: event.target.value})
+                }}/>
           </label>
           <button onclick={this.enterProfile()}>
             Enter
