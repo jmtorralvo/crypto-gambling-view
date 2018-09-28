@@ -40,7 +40,7 @@ class Result extends Component {
           </div>
           <div>
             <WinImgWrapper>
-              <img src={'/images/lost.png'} width="420" height="327" />
+              <img src={'/images/lost.png'} width="420" height="235" />
             </WinImgWrapper>
           </div>
         </div>
@@ -55,11 +55,11 @@ class Result extends Component {
             </CoinContainer>
           ))
         }
-        <div>
+        {/* <div>
           <graphWrapper>
             <img src={'/images/graphResult.png'} width="1158" height="528" />
           </graphWrapper>
-        </div>
+        </div> */}
         <div>
           <BtnAgain>
             <button onClick={() => {this.props.playAgain()}}>
