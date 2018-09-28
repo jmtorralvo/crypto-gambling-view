@@ -10,6 +10,10 @@ import { logResult } from '../../services/user.js';
 import { MainTitle, MainStageContainer } from './styles';
 import { getCrypto } from '../../services/user';
 
+
+let beforeResults = [];
+let afterResults = [];
+
 const coins = [
   {
     name: 'BTC',
@@ -56,9 +60,31 @@ class MainStage extends Component {
   }
 
   onSelecCoin(name){
+    getCrypto().then(response => {
+      response.data.map(coin => {
+        const assetIdBase = coin['asset_id_name'];
+        coins.map((c, index) => {
+          if (assetIdBase === c.name) {
+            coins[index].value = `${coin.rate}`;
+            afterResults.push({
+              ...coins[index]
+            });
+          }
+        });
+
+        afterResults.map((c, i) => {
+          const beforeCoin = beforeResults[i].value;
+          const afterCoin = afterResults[i].value;
+          const deviation = ((afterCoin / beforeCoin) * 100)-100;
+          coins[i].deviation = deviation;
+        });
+        console.log({coins})
+      })
+    }).catch((err) => console.log('err', err));
     this.setState({
       coinSelected: name,
-      stage: 'fight'})
+      stage: 'fight'
+    });
   }
 
   onSelectBet(amount) {
@@ -71,16 +97,17 @@ class MainStage extends Component {
 
   componentDidMount() {
     getCrypto().then(response => {
-      console.log(response.data);
       response.data.map(coin => {
         const assetIdBase = coin['asset_id_name'];
-        console.log({ coin })
         coins.map((c, index) => {
           if (assetIdBase === c.name) {
-            coins[index].value = `$${coin.rate.toFixed(2)}`;
+            console.log(`${assetIdBase}-> $${coin.rate}`)
+            coins[index].value = `${coin.rate}`;
+            beforeResults.push({
+              ...coins[index]
+            });
           }
         });
-        console.log({ coins });
       })
     }).catch((err) => console.log('err', err));
   }
