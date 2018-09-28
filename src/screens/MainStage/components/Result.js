@@ -36,6 +36,11 @@ class Result extends Component {
           </WinImgWrapper>
         </div>
         <div>
+          <WinImgWrapper>
+            <img src={'/images/lost.png'} width="440" height="347" />
+          </WinImgWrapper>
+        </div>
+        <div>
           <BtnAgain>
             <button onClick={() => {this.playAgain()}}>
               Play again
