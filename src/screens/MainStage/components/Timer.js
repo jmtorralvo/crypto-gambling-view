@@ -23,7 +23,7 @@ export default class Timer extends Component {
     this.setState({
       timer: {
         isOn: true,
-        time: 10,
+        time: this.props.maxTime || 10,
         start: Date.now(),
       }
     })

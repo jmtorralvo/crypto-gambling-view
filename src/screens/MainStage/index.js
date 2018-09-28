@@ -23,7 +23,12 @@ const coins = [
   }
 ];
 
-const COUNTDOWN_START = 10;
+const users = [
+  { username: 'ME' },
+  { username: 'User 1' },
+  { username: 'User 2' },
+  { username: 'User 3' },
+];
 
 
 class MainStage extends Component {
@@ -48,7 +53,7 @@ class MainStage extends Component {
   onSelecCoin(name){
     this.setState({
       coinSelected: name,
-      stage: 'countdown'
+      stage: 'fight'
     })
   }
 
@@ -60,12 +65,20 @@ class MainStage extends Component {
   }
 
   onEndCouwntDown(){
-    this.setState({
-      stage: 'fight'
-    });
+    if (this.state.stage === 'chooseCoin') {
+      this.setState({
+        stage: 'fight'
+      });
+    } else if (this.state.stage === 'fight') {
+      this.setState({
+        stage: 'result'
+      });
+    }
   }
 
-
+  startCoinSelection() {
+    
+  }
 
   render() {
     return (
@@ -80,13 +93,27 @@ class MainStage extends Component {
               <div>
                 <h2>Choose your crypto-fighter:</h2>
               </div>
+              <div>
+                <Timer onFinish={() => this.onEndCouwntDown()}></Timer>
+              </div>
               <div> 
                 {this.state.listCoins}
               </div>
             </div>
           } 
-          { this.state.stage === 'countdown' &&
-            <h1>sgfsdsgfdg</h1>
+          { this.state.stage === 'fight' &&
+            <div>
+              <Timer 
+                onFinish={() => this.onEndCouwntDown()}
+                maxTime={3}
+              >
+              </Timer>
+            </div>
+          }
+          { this.state.stage === 'result' &&
+            <div>
+              <h1>Result</h1>
+            </div>
           }
         </div>
       </div>
