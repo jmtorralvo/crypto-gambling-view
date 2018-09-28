@@ -5,6 +5,20 @@ export const Timer = styled.span`
   font-size: 40px;
 `;
 
+export const NegativeDeviation = styled.span`
+  color: red;
+  flex: 1;
+`;
+
+export const PositiveDeviation = styled.span`
+  color: green;
+  flex: 1;
+`;
+
+export const CoinColumn = styled.span`
+  flex: 1;
+`;
+
 export const UsersList = styled.div`
   width: 300px;
   background: #1E2C35;

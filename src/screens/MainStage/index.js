@@ -199,13 +199,14 @@ class MainStage extends Component {
               <h4>Maybe one has disappeared...</h4>
               <Timer
                 onFinish={() => this.onEndCouwntDown()}
-                maxTime={10}
+                maxTime={3}
               >
               </Timer>
             </div>
           }
           { this.state.stage === 'result' &&
             <Result
+              coins={coins}
               winner={this.state.winner}
               playAgain={this.playAgain}
             />
