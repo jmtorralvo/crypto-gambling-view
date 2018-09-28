@@ -12,7 +12,7 @@ class UserItem extends Component {
     console.log({ user });
     return (
       <UserContainer>
-        <UserAvatar src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" />
+        <UserAvatar src={user.avatar} />
         <UserName>{user.username}</UserName>
       </UserContainer>
     )

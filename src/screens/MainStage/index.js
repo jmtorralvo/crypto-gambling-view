@@ -27,10 +27,10 @@ const coins = [
 ];
 
 const users = [
-  { username: 'ME' },
-  { username: 'User 1' },
-  { username: 'User 2' },
-  { username: 'User 3' },
+  { username: 'Mike' , avatar: '/images/mike.jpeg'},
+  { username: 'Peter', avatar: '/images/peter.jpeg'},
+  { username: 'Victor', avatar: '/images/victor.jpeg'},
+  { username: 'Glen', avatar: '/images/glen.jpeg'},
 ];
 
 
