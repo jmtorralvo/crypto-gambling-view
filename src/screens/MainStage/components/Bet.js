@@ -25,24 +25,29 @@ class Bet extends Component {
       <div>
         <div>
           <Room
-            src="/bet.png"
+            src="/bet/5.png"
+            onClick={() => {
+              this.setBet(5)
+            }} />
+          <Room
+            src="/bet/10.png"
             onClick={() => {
               this.setBet(10)
             }} />
           <Room
-            src="/bet.png"
+            src="/bet/20.png"
             onClick={() => {
               this.setBet(20)
             }} />
           <Room
-            src="/bet.png"
-            onClick={() => {
-              this.setBet(20)
-            }} />
-          <Room
-            src="/bet.png"
+            src="/bet/30.png"
             onClick={() => {
               this.setBet(30)
+            }} />
+          <Room
+            src="/bet/50.png"
+            onClick={() => {
+              this.setBet(50)
             }} />
         </div>
         <div>
