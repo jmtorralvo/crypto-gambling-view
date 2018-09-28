@@ -65,11 +65,11 @@ class App extends Component {
             <Route path="/topics" component={Topics} />
           </div>
         </Router>
-        <Footer>
+        {/* <Footer>
           <ShareTitle>
             Share on
           </ShareTitle>
-        </Footer>
+        </Footer> */}
       </div>
     );
   }

@@ -49,7 +49,7 @@ export const Content = styled.div`
 export const Container = styled.div`
   margin: 0 auto;
   width: 960px;
-  height: 450px;
+  height: 550px;
   padding-top: 50px;
   padding-bottom: 50px;
   background: url('cryptocurrency-gambling.png')

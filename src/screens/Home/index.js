@@ -21,9 +21,9 @@ export default () => (
         <Button href="/login">Play now</Button>
       </Container>
     </Info>
-    <Content>
+    {/* <Content>
       <ContentContainer>
       </ContentContainer>
-    </Content>
+    </Content> */}
   </div>
 );
