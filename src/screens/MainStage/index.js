@@ -10,6 +10,10 @@ import { logResult } from '../../services/user.js';
 import { MainTitle, MainStageContainer } from './styles';
 import { getCrypto } from '../../services/user';
 
+
+let beforeResults = [];
+let afterResults = [];
+
 const coins = [
   {
     name: 'BTC',
@@ -56,9 +60,25 @@ class MainStage extends Component {
   }
 
   onSelecCoin(name){
+    getCrypto().then(response => {
+      response.data.map(coin => {
+        const assetIdBase = coin['asset_id_name'];
+        coins.map((c, index) => {
+          if (assetIdBase === c.name) {
+            coins[index].value = `$${coin.rate.toFixed(8)}`;
+            afterResults.push({
+              ...coins[index]
+            });
+          }
+        });
+        console.log({ beforeResults })
+        console.log({ afterResults })
+      })
+    }).catch((err) => console.log('err', err));
     this.setState({
       coinSelected: name,
-      stage: 'fight'})
+      stage: 'fight'
+    });
   }
 
   onSelectBet(amount) {
@@ -71,13 +91,14 @@ class MainStage extends Component {
 
   componentDidMount() {
     getCrypto().then(response => {
-      console.log(response.data);
       response.data.map(coin => {
         const assetIdBase = coin['asset_id_name'];
-        console.log({ coin })
         coins.map((c, index) => {
           if (assetIdBase === c.name) {
-            coins[index].value = `$${coin.rate.toFixed(2)}`;
+            coins[index].value = `$${coin.rate.toFixed(8)}`;
+            beforeResults.push({
+              ...coins[index]
+            });
           }
         });
       })
