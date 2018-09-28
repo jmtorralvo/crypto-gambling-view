@@ -5,6 +5,7 @@ import Timer from './components/Timer';
 import CryptoCard from './components/CryptoCard';
 import Users from './components/Users';
 import Result from './components/Result';
+import { logResult } from '../../services/user.js';
 import { MainTitle, MainStageContainer } from './styles';
 
 const coins = [
@@ -61,6 +62,18 @@ class MainStage extends Component {
   }
 
   onEndCouwntDown() {
+    const userName = localStorage.getItem('cf_userName');
+    console.log('userName', userName);
+   /*  logResult({
+      gameId: 'cryptoFighters',
+      userName: ''
+    }); */
+ /*    {
+      "gameId": "string",
+      "userName": "kunb",
+      "bet": 10,
+      "change": 10
+    } */
     this.setState({stage: 'result'});
   }
 
