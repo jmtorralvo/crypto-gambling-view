@@ -4,6 +4,7 @@ import logo from './logo.svg';
 import './App.css';
 
 import Home from './screens/Home/index.js';
+import Login from './screens/Login/index.js';
 
 /* const Home = () => (
   <div>
@@ -68,6 +69,7 @@ class App extends Component {
             <hr />
  */}
             <Route exact path="/" component={Home} />
+            <Route exact path="/login" component={Login} />
             <Route path="/about" component={About} />
             <Route path="/topics" component={Topics} />
           </div>
