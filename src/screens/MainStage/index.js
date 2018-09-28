@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import Bet from './components/Bet';
 import Timer from './components/Timer';
 import CryptoCard from './components/CryptoCard';
+import Users from './components/Users';
 
 const coins = [
   {
@@ -105,6 +106,7 @@ class MainStage extends Component {
   render() {
     return (
       <div className="MainStage">
+        <Users />
         <div>
           { this.state.stage === 'bet' &&
             <Bet onSelect={amount => this.onSelectBet(amount)}></Bet>
