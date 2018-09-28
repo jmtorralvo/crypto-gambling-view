@@ -1,5 +1,10 @@
 import React, {Component} from 'react';
 
+import {
+  CryptoContainer,
+  CoinName,
+} from '../styles';
+
 class CryptoCard extends Component {
 
   constructor(props) {
@@ -10,13 +15,11 @@ class CryptoCard extends Component {
   render() {
     const { onSelect, name, icon, isSelected, userSelection } = this.props;
     return (
-      <div>
-        <button onClick={() => {onSelect(name)}} disabled={isSelected}>
-          <img src={icon} width="100" height="100" />
-          <h4>{name}</h4>
-        </button>
-        { isSelected && <span>user {userSelection.username} selected this coin</span>  }
-      </div>
+      <CryptoContainer onClick={() => {onSelect(name)}} disabled={isSelected}>
+        <CoinName>{name} · $6.800</CoinName>
+        <img src={icon} width="200" height="200" />
+      </CryptoContainer>
+        // { isSelected && <span>user {userSelection.username} selected this coin</span>  }
     )
   }
 }

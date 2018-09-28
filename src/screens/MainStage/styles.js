@@ -53,3 +53,16 @@ export const Room = styled.img`
   margin-right: 50px;
   cursor: pointer;
 `;
+
+export const CryptoContainer = styled.div`
+display: inline-block;
+width: 200px;
+height: 200px;
+margin-right: 20px;
+cursor: pointer;
+`;
+
+export const CoinName = styled.div`
+font-size: 16px;
+text-align: left;
+`;
