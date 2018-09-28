@@ -8,29 +8,34 @@ import Result from './components/Result';
 const coins = [
   {
     name: 'BTC',
-    icon: 'https://bitstickers.net/wp-content/uploads/2013/12/btc-mono1.jpg',
-  },
-  {
+    icon: 'https://bitstickers.net/wp-content/uploads/2013/12/btc-mono1.jpg'
+  }, {
     name: 'LTC',
-    icon: 'https://bitstickers.net/wp-content/uploads/2013/12/btc-mono1.jpg',
-  },
-  {
+    icon: 'https://bitstickers.net/wp-content/uploads/2013/12/btc-mono1.jpg'
+  }, {
     name: 'ETH',
-    icon: 'https://bitstickers.net/wp-content/uploads/2013/12/btc-mono1.jpg',
-  },
-  {
+    icon: 'https://bitstickers.net/wp-content/uploads/2013/12/btc-mono1.jpg'
+  }, {
     name: 'TRX',
-    icon: 'https://bitstickers.net/wp-content/uploads/2013/12/btc-mono1.jpg',
+    icon: 'https://bitstickers.net/wp-content/uploads/2013/12/btc-mono1.jpg'
   }
 ];
 
 const users = [
-  { username: 'ME' },
-  { username: 'User 1' },
-  { username: 'User 2' },
-  { username: 'User 3' },
+  {
+    username: 'ME',
+    coinSelected: ''
+  }, {
+    username: 'User 1',
+    coinSelected: ''
+  }, {
+    username: 'User 2',
+    coinSelected: ''
+  }, {
+    username: 'User 3',
+    coinSelected: ''
+  }
 ];
-
 
 class MainStage extends Component {
 
@@ -42,110 +47,67 @@ class MainStage extends Component {
       coins,
       fakeParticipantsEngine: {
         time: 0,
-        picked: 0,
+        picked: 0
       },
+      users,
+      userSelection: users,
     };
   }
-  
-  onSelecCoin(name){
+
+  onSelecCoin(name) {
     this.setState({
       coinSelected: name,
-      stage: 'fight'
-    })
+      stage: 'fight'})
   }
 
-  onSelectBet(amount){
-    this.setState({
-      bet: amount,
-      stage: 'choseCoin'
-    });
-    this.startCoinSelection();
+  onSelectBet(amount) {
+    this.setState({bet: amount, stage: 'choseCoin'});
   }
 
-  onEndCouwntDown(){
-    if (this.state.stage === 'chooseCoin') {
-      this.setState({
-        stage: 'fight'
-      });
+  onEndCouwntDown() {
+    /* if (this.state.stage === 'chooseCoin') {
+      this.setState({stage: 'fight'});
     } else if (this.state.stage === 'fight') {
-      this.setState({
-        stage: 'result'
-      });
-    }
+      this.setState({stage: 'result'});
+    } */
+    this.setState({stage: 'result'});
   }
 
-  startCoinSelection() {
-    setInterval(() => {
-      if (this.state.fakeParticipantsEngine.time < 3) {
-      } else if (this.state.fakeParticipantsEngine.time > 10 || this.state.fakeParticipantsEngine.picked === 3) {
-        console.log('all have been picked');
-        clearInterval(this);
-      } else {
-        const selectedParticipant = this.state.fakeParticipantsEngine.picked + 1;
-        console.log('now we are selecting user', selectedParticipant)
-        const coins = this.state.coins;
-        coins[selectedParticipant].isSelected = true;
-        coins[selectedParticipant].userSelection = users[this.state.fakeParticipantsEngine.picked + 1];
-        this.setState({
-          coins,
-          fakeParticipantsEngine: {
-            picked: this.state.fakeParticipantsEngine.picked + 1,
-          }
-        });
-      }
-      this.setState({
-        fakeParticipantsEngine: {
-          time: this.state.fakeParticipantsEngine.time + 1,
-          picked: this.state.fakeParticipantsEngine.picked,
-        }
-      });
-    }, 1500);
-  }
 
   render() {
     return (
       <div className="MainStage">
+        <div>{this.state.stage}</div>
         <div>
-          { this.state.stage === 'bet' &&
+          {(this.state.stage === 'bet' || this.state.stage === 'choseCoin') &&
             <Bet onSelect={amount => this.onSelectBet(amount)}></Bet>
-          }
-          { this.state.stage === 'choseCoin' &&
+}
+          {this.state.stage === 'choseCoin' && 
+          <div>
             <div>
-              <div>
-                <h2>Choose your crypto-fighter:</h2>
-                <h4>You have 10 seconds...</h4>
-              </div>
-              <div>
-                <Timer onFinish={() => this.onEndCouwntDown()}></Timer>
-              </div>
-              <div> 
-                {this.state.coins.map((coin) =>
-                  <CryptoCard 
-                    icon={coin.icon}
-                    name={coin.name}
-                    isSelected={coin.isSelected}
-                    userSelection={coin.userSelection}
-                    onSelect={name => this.onSelecCoin(name)}
-                  />
-                )}
-              </div>
+              <h2>Choose your crypto-fighter:</h2>
             </div>
-          } 
-          { this.state.stage === 'fight' &&
             <div>
-              <h2>Values ​​fluctuating.</h2>
-              <h4>Maybe another currency has been created in this time...</h4>
-              <h4>Maybe one has disappeared...</h4>
-              <Timer 
-                onFinish={() => this.onEndCouwntDown()}
-                maxTime={3}
-              >
-              </Timer>
+              {this.state.coins.map((coin) => 
+                <CryptoCard
+                  icon={coin.icon}
+                  name={coin.name}
+                  isSelected={coin.isSelected}
+                  userSelection={coin.userSelection}
+                  onSelect={name => this.onSelecCoin(name)}
+                />)}
             </div>
-          }
-          { this.state.stage === 'result' &&
-            <Result></Result>
-          }
+          </div>
+}
+          {this.state.stage === 'fight' && <div>
+            <h2>Values ​​fluctuating.</h2>
+            <h4>Maybe another currency has been created in this time...</h4>
+            <h4>Maybe one has disappeared...</h4>
+            <Timer onFinish={() => this.onEndCouwntDown()} maxTime={3}></Timer>
+          </div>
+}
+          {this.state.stage === 'result' && <Result></Result>
+}
         </div>
       </div>
     );
