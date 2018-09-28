@@ -66,3 +66,14 @@ export const CoinName = styled.div`
 font-size: 16px;
 text-align: left;
 `;
+
+export const SpinnerWrapper = styled.div`
+heigh: 100px;
+width: 100px;
+`;
+
+export const SpinnerContainer = styled.div`
+heigh: 1000px;
+width: 100%;
+backgroundColor:rgba(0,0,0,0.5);
+`;
