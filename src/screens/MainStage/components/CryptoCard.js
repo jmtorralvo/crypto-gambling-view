@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import {
   CryptoContainer,
   CoinName,
+  Bold,
 } from '../styles';
 
 class CryptoCard extends Component {
@@ -16,7 +17,7 @@ class CryptoCard extends Component {
     const { onSelect, name, icon, isSelected, value } = this.props;
     return (
       <CryptoContainer onClick={() => {onSelect(name)}} disabled={isSelected}>
-        <CoinName>{name} · {value}</CoinName>
+        <CoinName><Bold>{name}</Bold> · ${value}</CoinName>
         <img src={icon} width="200" height="200" />
       </CryptoContainer>
         // { isSelected && <span>user {userSelection.username} selected this coin</span>  }
