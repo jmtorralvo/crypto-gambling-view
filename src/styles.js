@@ -23,3 +23,7 @@ export const Footer = styled.div`
 export const Title = styled.div`
   color: white;
 `;
+
+export const ShareTitle = styled.span`
+  color: white;
+`;

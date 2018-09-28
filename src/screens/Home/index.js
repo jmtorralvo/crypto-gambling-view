@@ -3,6 +3,8 @@ import {
   Info,
   Title,
   SubTitle,
+  Button,
+  Content,
 } from './styles';
 
 import {
@@ -15,8 +17,12 @@ export default () => (
       <Container>
         <Title>Crypto Fighters</Title>
         <SubTitle>Lorem ipsum</SubTitle>
+        <Button href="/login">Play now</Button>
       </Container>
     </Info>
-    <a href="/login">Login</a>
+    <Content>
+      <Container>
+      </Container>
+    </Content>
   </div>
 );

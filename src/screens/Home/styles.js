@@ -11,13 +11,35 @@ export const Title = styled.div`
   justify-content: left;
   text-align: left;
   margin-bottom: 20px;
-  `;
+`;
   
-  export const SubTitle = styled.div`
+export const SubTitle = styled.div`
   font-size: 18px;
   color: white;
   justify-content: left;
   text-align: left;
+  margin-bottom: 20px;
+`;
+
+export const Button = styled.a`
+  background: #50E3C2;
+  color: white;
+  justify-content: left;
+  display: block;
+  text-transform: uppercase;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  font-size: 14px;
+  width: 150px;
+  border-radius: 4px;
+  text-decoration: none;
+`;
+
+export const Content = styled.div`
+  padding-top: 30px;
+  padding-bottom: 30px;
 `;
 
 SubTitle

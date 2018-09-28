@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import logo from './logo.svg';
 import './App.css';
 
 import Home from './screens/Home';
@@ -10,6 +9,7 @@ import {
   Header,
   Footer,
   Title,
+  ShareTitle,
 } from './styles';
 
 const About = () => (
@@ -77,7 +77,11 @@ class App extends Component {
             <Route path="/topics" component={Topics} />
           </div>
         </Router>
-        <Footer />
+        <Footer>
+          <ShareTitle>
+            Share on
+          </ShareTitle>
+        </Footer>
       </div>
     );
   }
