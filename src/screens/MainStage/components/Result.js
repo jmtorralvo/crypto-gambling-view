@@ -46,7 +46,7 @@ class Result extends Component {
         }
         <div>
           <BtnAgain>
-            <button onClick={() => {this.playAgain()}}>
+            <button onClick={() => {this.props.playAgain()}}>
               Play again
             </button>
           </BtnAgain>
