@@ -23,6 +23,8 @@ const coins = [
 ];
 
 
+
+
 class MainStage extends Component {
   
 
@@ -56,6 +58,11 @@ class MainStage extends Component {
     });
   }
 
+  onEndCouwntDown(){
+    this.setState({
+      stage: 'fight'
+    });
+  }
 
 
 
