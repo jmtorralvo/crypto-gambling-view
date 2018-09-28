@@ -9,3 +9,7 @@ export const Footer = styled.div`
   background: #1E2C35;
   height: 100px;
 `;
+
+export const Title = styled.div`
+
+`;

@@ -2,19 +2,17 @@ import React, {Component} from 'react';
 import {
   Header,
   Footer,
+  Title,
 } from './styles';
 
-class Home extends Component {
+export default () => (
+  <div>
+    <Header>
+      <Title>CRYPTO FIGHTERS</Title>
+    </Header>
 
-  render() {
-    return (
-      <div>
-        <Header />
+    <a href="/login">Login</a>
 
-        <Footer />
-      </div>
-    );
-  }
-}
-
-export default Home;
+    <Footer />
+  </div>
+);
