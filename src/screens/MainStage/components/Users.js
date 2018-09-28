@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import UserItem from './UserItem';
+
 import {
   UsersList,
 } from '../styles';
@@ -6,8 +8,14 @@ import {
 class Users extends Component {
 
   render() {
+    const { users } = this.props;
+    console.log({ users });
     return (
-      <UsersList />
+      <UsersList>
+        {users.map(u => (
+          <UserItem user={u} />
+        ))}
+      </UsersList>
     )
   }
 }

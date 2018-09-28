@@ -12,3 +12,25 @@ export const UsersList = styled.div`
   position: absolute;
   top: 50px;
 `;
+
+export const UserContainer = styled.div`
+  width: 100%;
+  padding: 20px;
+  border-bottom-color: white; 
+  border-bottom-width: 1px; 
+  border-bottom-style: solid; 
+  display: flex;
+  align-items: center;
+`;
+
+export const UserAvatar = styled.img`
+  width: 70px;
+  height: 70px;
+  border-radius: 40px;
+  margin-right: 20px;
+`;
+
+export const UserName = styled.span`
+  font-size: 18px;
+  color: white;
+`;

@@ -106,7 +106,7 @@ class MainStage extends Component {
   render() {
     return (
       <div className="MainStage">
-        <Users />
+        <Users users={users} />
         <div>
           { this.state.stage === 'bet' &&
             <Bet onSelect={amount => this.onSelectBet(amount)}></Bet>
