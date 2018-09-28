@@ -40,6 +40,8 @@ class MainStage extends Component {
     super(props);
     this.state = {
       stage: 'bet',
+      bet: 0,
+      win: false,
       coinSelected: '',
       coins,
       fakeParticipantsEngine: {
@@ -62,19 +64,17 @@ class MainStage extends Component {
   }
 
   onEndCouwntDown() {
-    const userName = localStorage.getItem('cf_userName');
-    console.log('userName', userName);
-   /*  logResult({
-      gameId: 'cryptoFighters',
-      userName: ''
-    }); */
- /*    {
-      "gameId": "string",
-      "userName": "kunb",
-      "bet": 10,
-      "change": 10
-    } */
     this.setState({stage: 'result'});
+  }
+
+  onSendResult(){
+    const name = localStorage.getItem('cf_userName');
+    const diff = this.state.win ? this.state.bet : -(Number(this.state.bet))
+    logResult({
+      userName: name,
+      currentBet: this.state.bet,
+      change: diff
+    });
   }
 
 
