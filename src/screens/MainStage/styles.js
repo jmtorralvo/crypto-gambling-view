@@ -89,6 +89,7 @@ cursor: pointer;
 export const CoinName = styled.div`
 font-size: 14px;
 text-align: left;
+margin-bottom: 10px;
 `;
 
 export const SpinnerWrapper = styled.div`
