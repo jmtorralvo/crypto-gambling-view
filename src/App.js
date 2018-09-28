@@ -67,7 +67,6 @@ class App extends Component {
         </Router>
         <Footer>
           <ShareTitle>
-            Share on
           </ShareTitle>
         </Footer>
       </div>

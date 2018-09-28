@@ -5,10 +5,11 @@ import {
   SubTitle,
   Button,
   Content,
+  Container,
 } from './styles';
 
 import {
-  Container,
+  Container as ContentContainer,
 } from '../../styles';
 
 export default () => (
@@ -20,9 +21,9 @@ export default () => (
         <Button href="/login">Play now</Button>
       </Container>
     </Info>
-    <Content>
-      <Container>
-      </Container>
-    </Content>
+    {/* <Content>
+      <ContentContainer>
+      </ContentContainer>
+    </Content> */}
   </div>
 );
