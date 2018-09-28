@@ -42,5 +42,14 @@ export const MainTitle = styled.h2`
 
 export const MainStageContainer = styled.div`
   padding-top: 30px;
-  padding-left: 350px;
+  // padding-left: 350px;
+  margin: 0 auto;
+  width: 960px;
+`;
+
+export const Room = styled.img`
+  width: 100px;
+  display: inline-block;
+  margin-right: 50px;
+  cursor: pointer;
 `;

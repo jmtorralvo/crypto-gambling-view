@@ -107,7 +107,7 @@ class MainStage extends Component {
   render() {
     return (
       <div className="MainStage">
-        <Users users={users} />
+        {/* <Users users={users} /> */}
         <MainStageContainer>
           { this.state.stage === 'bet' &&
             <div>
