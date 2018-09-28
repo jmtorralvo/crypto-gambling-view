@@ -3,12 +3,11 @@ import {
   Info,
   Title,
   SubTitle,
-  Button,
-  Content,
   Container,
 } from './styles';
 
 import {
+  Button,
   Container as ContentContainer,
 } from '../../styles';
 
