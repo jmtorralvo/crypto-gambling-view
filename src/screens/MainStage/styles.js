@@ -10,6 +10,10 @@ export const NegativeDeviation = styled.span`
   flex: 1;
 `;
 
+export const CoinContainer = styled.span`
+  display: flex;
+`;
+
 export const PositiveDeviation = styled.span`
   color: green;
   flex: 1;
@@ -18,6 +22,11 @@ export const PositiveDeviation = styled.span`
 export const CoinColumn = styled.span`
   flex: 1;
 `;
+
+
+
+
+
 
 export const UsersList = styled.div`
   width: 300px;

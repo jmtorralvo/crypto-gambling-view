@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import {
   WinImgWrapper, BtnAgain, PositiveDeviation, NegativeDeviation,
-  CoinColumn,
+  CoinColumn, CoinContainer,
 } from '../styles';
 
 class Result extends Component {
@@ -47,12 +47,12 @@ class Result extends Component {
         }
         {
           this.props.coins.map(coin => (
-            <div>
+            <CoinContainer>
               <CoinColumn>{coin.name}</CoinColumn>
               <CoinColumn>{coin.value}</CoinColumn>
-              {coin.deviation > 0 && <PositiveDeviation>+{coin.deviation}</PositiveDeviation>}
-              {coin.deviation < 0 && <NegativeDeviation>{coin.deviation}</NegativeDeviation>}
-            </div>
+              {coin.deviation > 0 && <PositiveDeviation>+{coin.deviation}%</PositiveDeviation>}
+              {coin.deviation < 0 && <NegativeDeviation>{coin.deviation}%</NegativeDeviation>}
+            </CoinContainer>
           ))
         }
         <div>
