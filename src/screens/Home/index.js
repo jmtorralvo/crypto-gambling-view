@@ -5,10 +5,11 @@ import {
   SubTitle,
   Button,
   Content,
+  Container,
 } from './styles';
 
 import {
-  Container,
+  Container as ContentContainer,
 } from '../../styles';
 
 export default () => (
@@ -21,8 +22,8 @@ export default () => (
       </Container>
     </Info>
     <Content>
-      <Container>
-      </Container>
+      <ContentContainer>
+      </ContentContainer>
     </Content>
   </div>
 );
