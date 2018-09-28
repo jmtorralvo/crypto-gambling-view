@@ -65,25 +65,20 @@ class MainStage extends Component {
         const assetIdBase = coin['asset_id_name'];
         coins.map((c, index) => {
           if (assetIdBase === c.name) {
-            console.log(`${assetIdBase}-> $${coin.rate}`)
             coins[index].value = `${coin.rate}`;
             afterResults.push({
               ...coins[index]
             });
           }
         });
-        console.log({ beforeResults })
-        console.log({ afterResults })
 
         afterResults.map((c, i) => {
           const beforeCoin = beforeResults[i].value;
           const afterCoin = afterResults[i].value;
-          console.log({ beforeCoin })
-          console.log({ afterCoin })
           const deviation = ((afterCoin / beforeCoin) * 100)-100;
-          console.log({ deviation });
           coins[i].deviation = deviation;
         });
+        console.log({coins})
       })
     }).catch((err) => console.log('err', err));
     this.setState({
