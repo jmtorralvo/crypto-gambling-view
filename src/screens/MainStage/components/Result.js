@@ -21,25 +21,29 @@ class Result extends Component {
     return (
       <div>
         { this.state.winner &&
+        <div>
+            <div>
+              <h1>Congratulations! You won your bet</h1>
+            </div>
           <div>
-            <h1>Congratulations! You won your bet</h1>
+            <WinImgWrapper>
+              <img src={'/images/winner.png'} width="440" height="347" />
+            </WinImgWrapper>
           </div>
+        </div>
         }
         { !this.state.winner &&
+        <div>
           <div>
             <h1>Sorry! You lost your bet</h1>
           </div>
+          <div>
+            <WinImgWrapper>
+              <img src={'/images/lost.png'} width="440" height="347" />
+            </WinImgWrapper>
+          </div>
+        </div>
         }
-        <div>
-          <WinImgWrapper>
-            <img src={'/images/winner.png'} width="440" height="347" />
-          </WinImgWrapper>
-        </div>
-        <div>
-          <WinImgWrapper>
-            <img src={'/images/lost.png'} width="440" height="347" />
-          </WinImgWrapper>
-        </div>
         <div>
           <BtnAgain>
             <button onClick={() => {this.playAgain()}}>
