@@ -90,6 +90,7 @@ class MainStage extends Component {
                   <CryptoCard
                     icon={coin.icon}
                     name={coin.name}
+                    USDValue={6800}
                     isSelected={coin.isSelected}
                     userSelection={coin.userSelection}
                     onSelect={name => this.onSelecCoin(name)}
