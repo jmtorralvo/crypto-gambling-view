@@ -28,7 +28,6 @@ export default class Timer extends Component {
       }
     })
     this.timer = setInterval(() => {
-      console.log('this.state.timer.time', this.state.timer.time)
       if (this.state.timer.time === 1) {
         this.setState({
           timer: {
