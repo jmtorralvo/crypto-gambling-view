@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 
 import {
-  WinImgWrapper, BtnAgain,
+  WinImgWrapper, BtnAgain, PositiveDeviation, NegativeDeviation,
+  CoinColumn,
 } from '../styles';
 
 class Result extends Component {
@@ -21,25 +22,39 @@ class Result extends Component {
     return (
       <div>
         { this.state.winner &&
+        <div>
+            <div>
+              <h1>Congratulations! You won your bet</h1>
+            </div>
           <div>
-            <h1>Congratulations! You won your bet</h1>
+            <WinImgWrapper>
+              <img src={'/images/winner.png'} width="420" height="327" />
+            </WinImgWrapper>
           </div>
+        </div>
         }
         { !this.state.winner &&
+        <div>
           <div>
             <h1>Sorry! You lost your bet</h1>
           </div>
+          <div>
+            <WinImgWrapper>
+              <img src={'/images/lost.png'} width="420" height="327" />
+            </WinImgWrapper>
+          </div>
+        </div>
         }
-        <div>
-          <WinImgWrapper>
-            <img src={'/images/winner.png'} width="440" height="347" />
-          </WinImgWrapper>
-        </div>
-        <div>
-          <WinImgWrapper>
-            <img src={'/images/lost.png'} width="440" height="347" />
-          </WinImgWrapper>
-        </div>
+        {
+          this.props.coins.map(coin => (
+            <div>
+              <CoinColumn>{coin.name}</CoinColumn>
+              <CoinColumn>{coin.value}</CoinColumn>
+              {coin.deviation > 0 && <PositiveDeviation>+{coin.deviation}</PositiveDeviation>}
+              {coin.deviation < 0 && <NegativeDeviation>{coin.deviation}</NegativeDeviation>}
+            </div>
+          ))
+        }
         <div>
           <graphWrapper>
             <img src={'/images/graphResult.png'} width="1158" height="528" />
@@ -47,7 +62,7 @@ class Result extends Component {
         </div>
         <div>
           <BtnAgain>
-            <button onClick={() => {this.playAgain()}}>
+            <button onClick={() => {this.props.playAgain()}}>
               Play again
             </button>
           </BtnAgain>

@@ -57,6 +57,7 @@ class MainStage extends Component {
       users,
       userSelection: users,
     };
+    this.playAgain = this.playAgain.bind(this);
   }
 
   onSelecCoin(name){
@@ -129,6 +130,22 @@ class MainStage extends Component {
     }).catch((err) => console.log('err', err));
   }
 
+  playAgain() {
+    this.setState({
+      stage: 'bet',
+      bet: 0,
+      winner: false,
+      coinSelected: '',
+      coins,
+      fakeParticipantsEngine: {
+        time: 0,
+        picked: 0
+      },
+      users,
+      userSelection: users,
+    });
+  }
+
   onSendResult() {
     const name = localStorage.getItem('cf_userName');
     const diff = this.state.win ? this.state.bet : -(Number(this.state.bet))
@@ -188,7 +205,11 @@ class MainStage extends Component {
             </div>
           }
           { this.state.stage === 'result' &&
-            <Result winner={this.state.winner}></Result>
+            <Result
+              coins={coins}
+              winner={this.state.winner}
+              playAgain={this.playAgain}
+            />
           }
         </MainStageContainer>
       </div>
