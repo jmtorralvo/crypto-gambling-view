@@ -16,7 +16,8 @@ export default () => (
     <Info>
       <Container>
         <Title>Crypto Fighters</Title>
-        <SubTitle>Lorem ipsum</SubTitle>
+        <SubTitle>The game is too easy! select the amount you want to bet, choose the cryptocurrency that you think is going to increase the most its value in the following 10 seconds!</SubTitle>
+        <SubTitle>Become a millonaire in a few minutes!</SubTitle>
         <Button href="/login">Play now</Button>
       </Container>
     </Info>
