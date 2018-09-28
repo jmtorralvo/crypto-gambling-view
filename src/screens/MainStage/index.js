@@ -39,14 +39,11 @@ class MainStage extends Component {
     this.state = {
       stage: 'bet',
       coinSelected: '',
-      listCoins: coins.map((coin) =>
-        <CryptoCard 
-          icon={coin.icon}
-          name={coin.name}
-          onSelect={name => this.onSelecCoin(name)}
-        >
-        </CryptoCard>
-      )
+      coins,
+      fakeParticipantsEngine: {
+        time: 0,
+        picked: 0,
+      },
     };
   }
   
@@ -62,6 +59,7 @@ class MainStage extends Component {
       bet: amount,
       stage: 'choseCoin'
     });
+    this.startCoinSelection();
   }
 
   onEndCouwntDown(){
@@ -77,7 +75,31 @@ class MainStage extends Component {
   }
 
   startCoinSelection() {
-
+    setInterval(() => {
+      if (this.state.fakeParticipantsEngine.time < 3) {
+      } else if (this.state.fakeParticipantsEngine.time > 10 || this.state.fakeParticipantsEngine.picked === 3) {
+        console.log('all have been picked');
+        clearInterval(this);
+      } else {
+        const selectedParticipant = this.state.fakeParticipantsEngine.picked + 1;
+        console.log('now we are selecting user', selectedParticipant)
+        const coins = this.state.coins;
+        coins[selectedParticipant].isSelected = true;
+        coins[selectedParticipant].userSelection = users[this.state.fakeParticipantsEngine.picked + 1];
+        this.setState({
+          coins,
+          fakeParticipantsEngine: {
+            picked: this.state.fakeParticipantsEngine.picked + 1,
+          }
+        });
+      }
+      this.setState({
+        fakeParticipantsEngine: {
+          time: this.state.fakeParticipantsEngine.time + 1,
+          picked: this.state.fakeParticipantsEngine.picked,
+        }
+      });
+    }, 1500);
   }
 
   render() {
@@ -97,7 +119,15 @@ class MainStage extends Component {
                 <Timer onFinish={() => this.onEndCouwntDown()}></Timer>
               </div>
               <div> 
-                {this.state.listCoins}
+                {this.state.coins.map((coin) =>
+                  <CryptoCard 
+                    icon={coin.icon}
+                    name={coin.name}
+                    isSelected={coin.isSelected}
+                    userSelection={coin.userSelection}
+                    onSelect={name => this.onSelecCoin(name)}
+                  />
+                )}
               </div>
             </div>
           } 
