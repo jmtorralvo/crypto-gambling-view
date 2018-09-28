@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
 
+import {
+  Room,
+} from '../styles';
+
 class Bet extends Component {
 
   constructor(props) {
@@ -20,39 +24,26 @@ class Bet extends Component {
     return (
       <div>
         <div>
-          <h2>Choose you bet:</h2>
-        </div>
-        <div>
-          <ul>
-            <li>
-              <button onClick={() => {
-                this.setBet(10)
-              }}>
-                10
-              </button>
-            </li>
-            <li>
-              <button onClick={() => {
-                this.setBet(20)
-              }}>
-                20
-              </button>
-            </li>
-            <li>
-              <button onClick={() => {
-                this.setBet(50)
-              }}>
-                50
-              </button>
-            </li>
-            <li>
-              <button onClick={() => {
-                this.setBet(100)
-              }}>
-                100
-              </button>
-            </li>
-          </ul>
+          <Room
+            src="/bet.png"
+            onClick={() => {
+              this.setBet(10)
+            }} />
+          <Room
+            src="/bet.png"
+            onClick={() => {
+              this.setBet(20)
+            }} />
+          <Room
+            src="/bet.png"
+            onClick={() => {
+              this.setBet(20)
+            }} />
+          <Room
+            src="/bet.png"
+            onClick={() => {
+              this.setBet(30)
+            }} />
         </div>
         <div>
           bet: {this.state.bet}

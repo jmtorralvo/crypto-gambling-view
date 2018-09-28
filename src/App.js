@@ -52,6 +52,7 @@ const Topic = ({ match }) => (
 
 class App extends Component {
   render() {
+    const loc = window.location.href;
     return (
       <div className="App">
         <Header>
@@ -65,10 +66,12 @@ class App extends Component {
             <Route path="/topics" component={Topics} />
           </div>
         </Router>
-        <Footer>
-          <ShareTitle>
-          </ShareTitle>
-        </Footer>
+        { loc[loc.length - 1] === '/' && 
+          <Footer>
+            <ShareTitle>
+            </ShareTitle>
+          </Footer>
+        }
       </div>
     );
   }
