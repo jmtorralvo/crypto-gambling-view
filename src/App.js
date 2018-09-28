@@ -6,12 +6,12 @@ import './App.css';
 import Home from './screens/Home';
 import Login from './screens/Login';
 
-/* const Home = () => (
-  <div>
-    <h2>Home</h2>
-  </div>
-);
- */
+import {
+  Header,
+  Footer,
+  Title,
+} from './styles';
+
 const About = () => (
   <div>
     <h2>About</h2>
@@ -52,6 +52,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Header>
+          <Title>CRYPTO FIGHTERS</Title>
+        </Header>
         <Router>
           <div>
             {/* <ul>
@@ -74,6 +77,7 @@ class App extends Component {
             <Route path="/topics" component={Topics} />
           </div>
         </Router>
+        <Footer />
       </div>
     );
   }
