@@ -12,6 +12,7 @@ export const NegativeDeviation = styled.span`
 
 export const CoinContainer = styled.span`
   display: flex;
+  margin-bottom: 10px;
 `;
 
 export const PositiveDeviation = styled.span`
