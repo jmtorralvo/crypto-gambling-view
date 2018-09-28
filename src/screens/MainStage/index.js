@@ -4,6 +4,7 @@ import Bet from './components/Bet';
 import Timer from './components/Timer';
 import CryptoCard from './components/CryptoCard';
 import Users from './components/Users';
+import Result from './components/Result';
 
 const coins = [
   {
@@ -33,7 +34,6 @@ const users = [
 
 
 class MainStage extends Component {
-  
 
   constructor(props) {
     super(props);
@@ -112,10 +112,10 @@ class MainStage extends Component {
             <Bet onSelect={amount => this.onSelectBet(amount)}></Bet>
           }
           { this.state.stage === 'choseCoin' &&
-            //<Bet onSelect={amount => this.onSelectBet(amount)}></Bet>
             <div>
               <div>
                 <h2>Choose your crypto-fighter:</h2>
+                <h4>You have 10 seconds...</h4>
               </div>
               <div>
                 <Timer onFinish={() => this.onEndCouwntDown()}></Timer>
@@ -135,6 +135,9 @@ class MainStage extends Component {
           } 
           { this.state.stage === 'fight' &&
             <div>
+              <h2>Values ​​fluctuating.</h2>
+              <h4>Maybe another currency has been created in this time...</h4>
+              <h4>Maybe one has disappeared...</h4>
               <Timer 
                 onFinish={() => this.onEndCouwntDown()}
                 maxTime={3}
@@ -143,9 +146,7 @@ class MainStage extends Component {
             </div>
           }
           { this.state.stage === 'result' &&
-            <div>
-              <h1>Result</h1>
-            </div>
+            <Result></Result>
           }
         </div>
       </div>
