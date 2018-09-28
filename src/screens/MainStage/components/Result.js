@@ -4,6 +4,7 @@ import {
   WinImgWrapper, BtnAgain, PositiveDeviation, NegativeDeviation,
   CoinColumn, CoinContainer,
 } from '../styles';
+import { logResult } from '../../../services/user.js';
 
 class Result extends Component {
 
@@ -15,7 +16,21 @@ class Result extends Component {
   }
 
   playAgain(){
-    document.location.href = './mainstage';
+    this.onSendResult()
+    .then(resp => {
+      document.location.href = './mainstage';
+    })
+    .catch(e => {console.log(e)})
+  }
+
+  onSendResult() {
+    const name = localStorage.getItem('cf_userName') || 'unknown';
+    const diff = this.state.winner ? this.state.bet : -(Number(this.state.bet))
+    logResult({
+      userName: name,
+      currentBet: this.state.bet,
+      change: diff
+    });
   }
 
   render() {

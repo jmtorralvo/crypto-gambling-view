@@ -146,16 +146,6 @@ class MainStage extends Component {
     });
   }
 
-  onSendResult() {
-    const name = localStorage.getItem('cf_userName');
-    const diff = this.state.win ? this.state.bet : -(Number(this.state.bet))
-    logResult({
-      userName: name,
-      currentBet: this.state.bet,
-      change: diff
-    });
-  }
-
 
   render() {
     return (
@@ -209,6 +199,7 @@ class MainStage extends Component {
               coins={coins}
               winner={this.state.winner}
               playAgain={this.playAgain}
+              bet={this.state.bet}
             />
           }
         </MainStageContainer>
