@@ -23,10 +23,13 @@ const coins = [
   }
 ];
 
+const users = [
+  { username: 'ME' },
+  { username: 'User 1' },
+  { username: 'User 2' },
+  { username: 'User 3' },
+];
 
-
-
-const COUNTDOWN_START = 10;
 class MainStage extends Component {
   
 
@@ -58,10 +61,12 @@ class MainStage extends Component {
       bet: amount,
       stage: 'choseCoin'
     });
+
   }
 
-
-
+  startCoinSelection() {
+    
+  }
 
   render() {
     return (
