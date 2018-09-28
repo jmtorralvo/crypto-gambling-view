@@ -79,6 +79,21 @@ class MainStage extends Component {
           coins[i].deviation = deviation;
         });
         console.log({coins})
+        let winnerCoin = '';
+        coins.map(c => {
+          if (!winnerCoin) {
+            winnerCoin = c;
+          } else {
+            if (c.deviation > winnerCoin.deviation) {
+              winnerCoin = c;
+            }
+          }
+        });
+        console.log({ winnerCoin })
+        console.log(this.state.coinSelected);
+        this.setState({
+          winner: winnerCoin.name === this.state.coinSelected,
+        });
       })
     }).catch((err) => console.log('err', err));
     this.setState({
