@@ -199,7 +199,7 @@ class MainStage extends Component {
               <h4>Maybe one has disappeared...</h4>
               <Timer
                 onFinish={() => this.onEndCouwntDown()}
-                maxTime={3}
+                maxTime={10}
               >
               </Timer>
             </div>
