@@ -10,15 +10,15 @@ const coins = [
     icon: 'https://bitstickers.net/wp-content/uploads/2013/12/btc-mono1.jpg',
   },
   {
-    name: 'BTC',
+    name: 'LTC',
     icon: 'https://bitstickers.net/wp-content/uploads/2013/12/btc-mono1.jpg',
   },
   {
-    name: 'BTC',
+    name: 'ETH',
     icon: 'https://bitstickers.net/wp-content/uploads/2013/12/btc-mono1.jpg',
   },
   {
-    name: 'BTC',
+    name: 'TRX',
     icon: 'https://bitstickers.net/wp-content/uploads/2013/12/btc-mono1.jpg',
   }
 ];
@@ -77,7 +77,7 @@ class MainStage extends Component {
   }
 
   startCoinSelection() {
-    
+
   }
 
   render() {
