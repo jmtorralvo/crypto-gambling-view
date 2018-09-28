@@ -10,7 +10,7 @@ class Login extends Component {
   }
 
   enterProfile() {
-    document.location.href = './MainStage'
+    document.location.href = './mainstage'
   }
 
   render() {
@@ -28,8 +28,8 @@ class Login extends Component {
                   this.setState({ userName: event.target.value})
                 }}/>
           </label>
-          <button onclick={this.enterProfile()}>
-            Enter
+          <button onClick={() => {this.enterProfile()}}>
+            Enter2
           </button>
         </div>
       </div>

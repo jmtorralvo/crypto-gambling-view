@@ -3,17 +3,11 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import logo from './logo.svg';
 import './App.css';
 
-import Home from './screens/Home/index.js';
-import Login from './screens/Login/index.js';
-import MainStage from './screens/MainStage/index.js';
+import Home from './screens/Home';
+import Login from './screens/Login';
+import MainStage from './screens/MainStage';
 
 
-/* const Home = () => (
-  <div>
-    <h2>Home</h2>
-  </div>
-);
- */
 const About = () => (
   <div>
     <h2>About</h2>
@@ -72,7 +66,7 @@ class App extends Component {
  */}
             <Route exact path="/" component={Home} />
             <Route exact path="/login" component={Login} />
-            <Route path="/mainStage" component={MainStage} />
+            <Route path="/mainstage" component={MainStage} />
             <Route path="/topics" component={Topics} />
           </div>
         </Router>
