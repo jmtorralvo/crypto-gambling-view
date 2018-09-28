@@ -93,3 +93,6 @@ background-color:rgba(0,0,0,0.5);
 export const WinImgWrapper = styled.div`
   margin-bottom: 60px;
 `
+export const BtnAgain = styled.div`
+  margin-bottom: 60px;
+`

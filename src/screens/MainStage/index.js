@@ -47,7 +47,7 @@ class MainStage extends Component {
     this.state = {
       stage: 'bet',
       bet: 0,
-      win: false,
+      winner: false,
       coinSelected: '',
       coins,
       fakeParticipantsEngine: {
@@ -92,7 +92,9 @@ class MainStage extends Component {
   }
 
   onEndCouwntDown() {
-    this.setState({stage: 'result'});
+    if(this.state.stage === 'fight') {
+      this.setState({stage: 'result'});
+    }
   }
 
   componentDidMount() {
@@ -171,7 +173,7 @@ class MainStage extends Component {
             </div>
           }
           { this.state.stage === 'result' &&
-            <Result winner></Result>
+            <Result winner={this.state.winner}></Result>
           }
         </MainStageContainer>
       </div>
