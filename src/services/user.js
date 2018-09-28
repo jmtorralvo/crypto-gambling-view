@@ -20,5 +20,5 @@ axios({
 
 export const getCrypto = () => axios({
   method: 'get',
-  url: 'https://pure-headland-66701.herokuapp.com:4000/api/cryptos',
+  url: 'http://localhost:4000/api/cryptos',
 });

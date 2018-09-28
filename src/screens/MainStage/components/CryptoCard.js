@@ -13,10 +13,10 @@ class CryptoCard extends Component {
 
 
   render() {
-    const { onSelect, name, icon, isSelected, userSelection } = this.props;
+    const { onSelect, name, icon, isSelected, value } = this.props;
     return (
       <CryptoContainer onClick={() => {onSelect(name)}} disabled={isSelected}>
-        <CoinName>{name} · $6.800</CoinName>
+        <CoinName>{name} · {value}</CoinName>
         <img src={icon} width="200" height="200" />
       </CryptoContainer>
         // { isSelected && <span>user {userSelection.username} selected this coin</span>  }
