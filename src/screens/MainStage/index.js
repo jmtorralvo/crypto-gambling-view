@@ -70,7 +70,6 @@ class MainStage extends Component {
   }
 
   componentDidMount() {
-    console.log('didMount');
     getCrypto().then(response => {
       console.log(response.data);
       response.data.map(coin => {
@@ -81,7 +80,6 @@ class MainStage extends Component {
             coins[index].value = `$${coin.rate.toFixed(2)}`;
           }
         });
-        console.log({ coins });
       })
     }).catch((err) => console.log('err', err));
   }
