@@ -10,19 +10,19 @@ import { MainTitle, MainStageContainer } from './styles';
 const coins = [
   {
     name: 'BTC',
-    icon: 'https://bitstickers.net/wp-content/uploads/2013/12/btc-mono1.jpg',
+    icon: '/images/bitcoin.png',
   },
   {
     name: 'LTC',
-    icon: 'https://bitstickers.net/wp-content/uploads/2013/12/btc-mono1.jpg',
+    icon: '/images/litecoin.png',
   },
   {
     name: 'ETH',
-    icon: 'https://bitstickers.net/wp-content/uploads/2013/12/btc-mono1.jpg',
+    icon: '/images/ethereum.png',
   },
   {
     name: 'TRX',
-    icon: 'https://bitstickers.net/wp-content/uploads/2013/12/btc-mono1.jpg',
+    icon: '/images/tron.png',
   }
 ];
 
@@ -48,7 +48,7 @@ class MainStage extends Component {
       },
     };
   }
-  
+
   onSelecCoin(name){
     this.setState({
       coinSelected: name,
@@ -124,9 +124,9 @@ class MainStage extends Component {
               <div>
                 <Timer onFinish={() => this.onEndCouwntDown()}></Timer>
               </div>
-              <div> 
+              <div>
                 {this.state.coins.map((coin) =>
-                  <CryptoCard 
+                  <CryptoCard
                     icon={coin.icon}
                     name={coin.name}
                     isSelected={coin.isSelected}
@@ -136,13 +136,13 @@ class MainStage extends Component {
                 )}
               </div>
             </div>
-          } 
+          }
           { this.state.stage === 'fight' &&
             <div>
               <h2>Values ​​fluctuating.</h2>
               <h4>Maybe another currency has been created in this time...</h4>
               <h4>Maybe one has disappeared...</h4>
-              <Timer 
+              <Timer
                 onFinish={() => this.onEndCouwntDown()}
                 maxTime={3}
               >
