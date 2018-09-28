@@ -56,6 +56,11 @@ class Result extends Component {
           ))
         }
         <div>
+          <graphWrapper>
+            <img src={'/images/graphResult.png'} width="1158" height="528" />
+          </graphWrapper>
+        </div>
+        <div>
           <BtnAgain>
             <button onClick={() => {this.props.playAgain()}}>
               Play again
