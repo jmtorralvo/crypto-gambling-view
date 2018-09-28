@@ -22,3 +22,16 @@ export const getCrypto = () => axios({
   method: 'get',
   url: 'https://pure-headland-66701.herokuapp.com:4000/api/cryptos',
 });
+
+
+export const getHistory = (name,currentBet,currentChange) =>
+axios({
+  method: 'get',
+  url: 'http://hackathon.guidesmiths.com:4000/api/nav/log',
+  data: {
+     gameId: "crypto-fighters",
+     userName: name,
+     bet: currentBet,
+     change: currentChange
+ }
+})
