@@ -1,5 +1,7 @@
 const axios = require('axios');
 
+const API_URL = 'http://crypto-fighters.hackathon.guidesmiths.com';
+
 export const loginUser = (name) =>
   axios
    .post('http://hackathon.guidesmiths.com:4000/api/user', {
@@ -32,5 +34,5 @@ axios({
 
 export const getCrypto = () => axios({
   method: 'get',
-  url: 'https://pure-headland-66701.herokuapp.com/api/cryptos',
+  url: `${API_URL}/api/cryptos`,
 });
