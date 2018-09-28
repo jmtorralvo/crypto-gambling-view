@@ -70,7 +70,6 @@ class MainStage extends Component {
   }
 
   componentDidMount() {
-    console.log('didMount');
     getCrypto().then(response => {
       console.log(response.data);
       response.data.map(coin => {
@@ -101,7 +100,7 @@ class MainStage extends Component {
     return (
       <div className="MainStage">
         <MainStageContainer>
-          <Spinner></Spinner>
+         {/*  <Spinner></Spinner> */}
           { (this.state.stage === 'bet' || this.state.stage === 'choseCoin') &&
             <div>
               <MainTitle>Pick your amount</MainTitle>
@@ -145,7 +144,7 @@ class MainStage extends Component {
             </div>
           }
           { this.state.stage === 'result' &&
-            <Result></Result>
+            <Result winner></Result>
           }
         </MainStageContainer>
       </div>

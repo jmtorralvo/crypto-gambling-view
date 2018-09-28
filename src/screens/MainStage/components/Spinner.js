@@ -18,7 +18,7 @@ export default class Spinner extends Component {
     return (
       <SpinnerContainer>
         <SpinnerWrapper>
-         <img src={'/images/litecoin.png'} width="100" height="100" />
+         <img src={'/images/spinner.png'} width="100" height="100" />
         </SpinnerWrapper>
       </SpinnerContainer>
     )

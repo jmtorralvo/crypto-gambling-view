@@ -68,12 +68,28 @@ text-align: left;
 `;
 
 export const SpinnerWrapper = styled.div`
-heigh: 100px;
-width: 100px;
+heigh: 1000px;
+width: 1000px;
+@-moz-keyframes spin {
+  from { -moz-transform: rotate(0deg); }
+  to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+  from { -webkit-transform: rotate(0deg); }
+  to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+  from {transform:rotate(0deg);}
+  to {transform:rotate(360deg);}
+}
 `;
 
 export const SpinnerContainer = styled.div`
 heigh: 1000px;
 width: 100%;
-backgroundColor:rgba(0,0,0,0.5);
+background-color:rgba(0,0,0,0.5);
 `;
+
+export const WinImgWrapper = styled.div`
+  margin-bottom: 60px;
+`
