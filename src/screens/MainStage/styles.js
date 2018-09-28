@@ -24,10 +24,10 @@ export const CoinColumn = styled.span`
   flex: 1;
 `;
 
-
-
-
-
+export const Bold = styled.span`
+  font-weight: 800;
+  font-size: 16px;
+`;
 
 export const UsersList = styled.div`
   width: 300px;
@@ -87,8 +87,9 @@ cursor: pointer;
 `;
 
 export const CoinName = styled.div`
-font-size: 16px;
+font-size: 14px;
 text-align: left;
+margin-bottom: 10px;
 `;
 
 export const SpinnerWrapper = styled.div`
