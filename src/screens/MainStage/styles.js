@@ -96,3 +96,8 @@ export const WinImgWrapper = styled.div`
 export const BtnAgain = styled.div`
   margin-bottom: 60px;
 `
+
+export const graphWrapper = styled.div`
+margin: auto;
+width: 100%;
+`

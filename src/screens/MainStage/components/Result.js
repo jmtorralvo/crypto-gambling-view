@@ -41,6 +41,11 @@ class Result extends Component {
           </WinImgWrapper>
         </div>
         <div>
+          <graphWrapper>
+            <img src={'/images/graphResult.png'} width="1158" height="528" />
+          </graphWrapper>
+        </div>
+        <div>
           <BtnAgain>
             <button onClick={() => {this.playAgain()}}>
               Play again
