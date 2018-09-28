@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   margin: 0 auto;
-  width: 800px;
+  width: 960px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 `;
 
 export const Header = styled.div`
@@ -19,5 +21,9 @@ export const Footer = styled.div`
 `;
 
 export const Title = styled.div`
+  color: white;
+`;
+
+export const ShareTitle = styled.span`
   color: white;
 `;
